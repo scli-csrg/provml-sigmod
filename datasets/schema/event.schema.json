@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ProvML Event",
+  "type": "object",
+  "required": ["id","type","actor","inputs","outputs","sig","seq","parents"],
+  "properties": {
+    "id": {"type": "string"},
+    "type": {"enum": ["Acquire","Train","Compile","Package","Load","Deploy","Ingest","Embed","Index","Retrieve","Generate"]},
+    "actor": {"type": "string"},
+    "inputs": {"type": "array"},
+    "outputs": {"type": "array"},
+    "parents": {"type": "array"},
+    "seq": {"type": "integer","minimum": 0},
+    "sig": {"type": "string"},
+    "certificates": {"type": "array"}
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "description": "Synthetic content-addressed artifacts used in ProvML fixtures.",
+  "artifacts": [
+    {"name":"checkpoint_resnet50","type":"Checkpoint","size_bytes":102760448},
+    {"name":"checkpoint_bert_base","type":"Checkpoint","size_bytes":440401920},
+    {"name":"binary_xla_o2","type":"Binary","size_bytes":163577856},
+    {"name":"package_onnx","type":"Package","size_bytes":2469606195},
+    {"name":"rag_chunk_0001","type":"Chunk","size_bytes":4096},
+    {"name":"rag_vector_0001","type":"Vector","size_bytes":1536}
+  ]
+}

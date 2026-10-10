@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SupplyQL Policy AST",
+  "type": "object",
+  "required": ["theta","expr"],
+  "properties": {
+    "theta": {"enum": ["DEPLOYMENT","ANSWER","LOAD","PROOF"]},
+    "expr": {"type": "object"},
+    "kmax": {"type": "integer","maximum": 6,"default": 6}
+  }
+}

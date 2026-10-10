@@ -1,0 +1,10 @@
+CERTIFY ANSWER :answer_id REQUIRE
+  FOR ALL c IN RetrievedChunks(answer_id):
+    EXISTS PATH
+      :(ApprovedCorpus) -[INGESTED_AS]-> (Chunk)
+                        -[EMBEDDED_AS]-> (Vector)
+                        -[INDEXED_IN]->  (Index)
+                        -[RETRIEVED_FOR]-> (Answer)
+    WHERE c.access_policy ALLOWS Answer.tenant
+      AND Vector.embedding_lineage IS_CERTIFIED
+      AND Index.version = Answer.index_version

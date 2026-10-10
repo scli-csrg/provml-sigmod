@@ -1,0 +1,12 @@
+CERTIFY DEPLOYMENT :endpoint REQUIRE
+  EXISTS PATH
+    :(ApprovedCheckpoint) -[COMPILED_BY]-> (CompileEvent)
+                         -[PRODUCED]->    (Binary)
+                         -[PACKAGED_AS]-> (Package)
+                         -[LOADED_BY]->   (LoadEvent)
+                         -[DEPLOYED_AS]-> (Endpoint)
+  WHERE CompileEvent.compiler_hash IN ApprovedCompilers
+    AND CompileEvent.certificates CONTAINS "post_compile_equivalence"
+    AND LoadEvent.format IN ("safetensors", "onnx")
+    AND LoadEvent.import_trace HAS_NO_UNAPPROVED_IMPORTS
+    AND Endpoint.policy_version = CurrentPolicy

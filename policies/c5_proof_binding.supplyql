@@ -1,0 +1,7 @@
+# C5: proof-to-provenance binding (target relation, not evaluated).
+CERTIFY PROOF :proof_id REQUIRE
+  EXISTS PATH
+    :(Proof) -[BINDS]-> (DeploymentRecord)
+             -[USES]->  (ApprovedModel)
+  WHERE DeploymentRecord.model_commitment = ApprovedModel.commitment
+    AND DeploymentRecord.policy_version = CurrentPolicy
